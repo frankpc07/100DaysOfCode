@@ -8,7 +8,7 @@ namespace PilasAndColas
 	{
 		static void Main(String[] args)
 		{
-			Pila pila = new Pila();
+			/*Pila pila = new Pila();
 
 			pila.insertarNodo();
 			pila.insertarNodo();
@@ -19,7 +19,15 @@ namespace PilasAndColas
 			Console.WriteLine("\n La Pila ingresada es \n\n");
 			pila.desplegarPila();
 
+			Console.ReadLine();*/
+
+			Cola cola = new Cola();
+			
+			cola.encolar();
+			cola.encolar();
+
 			Console.ReadLine();
+
 		}
 	}
 }
