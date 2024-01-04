@@ -25,6 +25,9 @@ namespace PilasAndColas
 			
 			cola.encolar();
 			cola.encolar();
+			cola.encolar();
+			Console.WriteLine("\n La Cola ingresada es \n\n");
+			cola.desencolar();
 
 			Console.ReadLine();
 

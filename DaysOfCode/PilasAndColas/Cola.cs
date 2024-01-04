@@ -42,35 +42,47 @@ namespace PilasAndColas
 			Console.Write("\n Ingrese un dato\n\n");
 			nodo.Dato = int.Parse(Console.ReadLine());
 			nodo.Posicion = Primero;
+
+			
+
 			nodo.Nodo = DatosCola;
 
 			DatosCola = nodo;
+			Ultimo = Ultimo + 1;
 
-			Ultimo = Ultimo + 1; //DatosCola.Nodo.Posicion;
-
-			if(Ultimo  > 1)
-			{
-				/*for (int i = 0; i <= Ultimo; i++)
-				{
-					
-					DatosCola.Posicion = DatosCola.Posicion + 1;
-				}
-				Ultimo = DatosCola.Posicion;*/
-				if(DatosCola != null)
-				{
-					while(DatosCola != null)
-					{
-						DatosCola.Nodo.Posicion = DatosCola.Nodo.Posicion + 1;
-					}
-				}
-			}
 			
+			NodoCola NodoActual = new NodoCola();
+			NodoActual = DatosCola;
+
+			while(NodoActual != null)
+			{
+				NodoActual.Posicion = NodoActual.Posicion + 1;
+				NodoActual = NodoActual.Nodo;	
+			}
+
 
 		}
 
 		public void desencolar()
 		{
+			NodoCola NodoDesencolar = new NodoCola();
+			NodoCola NodoImprimir = new NodoCola();
+			NodoDesencolar = DatosCola;
 
+			while(NodoDesencolar != null)
+			{
+				if(NodoDesencolar.Posicion <= Ultimo)
+				{
+					NodoImprimir = NodoDesencolar;
+					NodoDesencolar = NodoDesencolar.Nodo;
+				}
+			}
+
+			while(NodoImprimir != null)
+			{
+				Console.WriteLine(" " + NodoImprimir.Dato);
+				NodoImprimir = NodoImprimir.Nodo;
+			}
 		}
 
 	}
