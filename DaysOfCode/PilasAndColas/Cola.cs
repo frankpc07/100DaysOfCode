@@ -14,7 +14,7 @@ namespace PilasAndColas
 		private NodoCola DatosCola = new NodoCola();
 		private int primero;
 		private int ultimo;
-		private Cola vector;
+		//private Cola vector;
 
 		public int Primero {
 			get { return primero; }
@@ -28,29 +28,48 @@ namespace PilasAndColas
 		public Cola()
 		{
 			DatosCola = null;
+			Primero = 0;
 		}
-		public Cola Vector
+		/*public Cola Vector
 		{
 			get { return vector; }
 			set { vector = value; }
-		}
+		}*/
 
 		public void encolar()
 		{
 			NodoCola nodo = new NodoCola();
 			Console.Write("\n Ingrese un dato\n\n");
 			nodo.Dato = int.Parse(Console.ReadLine());
-			if (Vector != null)
-				nodo.Posicion = Vector.Primero + 1;
-			else
-				nodo.Posicion = 1;
+			nodo.Posicion = Primero;
+			nodo.Nodo = DatosCola;
 
 			DatosCola = nodo;
-			DatosCola.Nodo = DatosCola;
-			Cola cola1 = new Cola();
-			cola1.Primero = nodo.Posicion - 1;
-			cola1.Ultimo = nodo.Posicion;
-			Vector = cola1;
+
+			Ultimo = Ultimo + 1; //DatosCola.Nodo.Posicion;
+
+			if(Ultimo  > 1)
+			{
+				/*for (int i = 0; i <= Ultimo; i++)
+				{
+					
+					DatosCola.Posicion = DatosCola.Posicion + 1;
+				}
+				Ultimo = DatosCola.Posicion;*/
+				if(DatosCola != null)
+				{
+					while(DatosCola != null)
+					{
+						DatosCola.Nodo.Posicion = DatosCola.Nodo.Posicion + 1;
+					}
+				}
+			}
+			
+
+		}
+
+		public void desencolar()
+		{
 
 		}
 
